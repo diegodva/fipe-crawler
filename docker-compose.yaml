@@ -1,0 +1,10 @@
+services:
+  postgres:
+    image: postgres
+    volumes:
+      - ./sql/01-create_tables.sql:/docker-entrypoint-initdb.d/01-create_tables.sql
+      - ./sql/02-brands.sql:/docker-entrypoint-initdb.d/02-brands.sql
+    environment:
+      POSTGRES_PASSWORD: "Postgres2022!"
+    ports:
+      - "5432:5432"
